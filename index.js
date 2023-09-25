@@ -46,12 +46,14 @@ const getProducts = async () => {
 };
 
 function checkSpecial(products){
+    console.log("============Status===============")
     products.forEach(product => {
         if(product.text.indexOf("Special") >= 0) {
             console.log(product.text);
          }
       });
+    console.log("=================================")
 }
 
-// Start the scraping
-getProducts();
+// Start the scraping and run continuously ever minute
+var interval = setInterval(getProducts, 60000);
